@@ -1412,11 +1412,7 @@ class ServerTrustPolicyCertificatesInBundleTestCase: ServerTrustPolicyTestCase {
         #if os(macOS)
             // For some reason, macOS is allowing all certificates to be considered valid. Need to file a
             // rdar demonstrating this behavior.
-            if #available(OSX 10.12, *) {
-                XCTAssertEqual(certificates.count, 19, "Expected 19 well-formed certificates")
-            } else {
-                XCTAssertEqual(certificates.count, 23, "Expected 23 well-formed certificates")
-            }
+            XCTAssertEqual(certificates.count, 23, "Expected 23 well-formed certificates")
         #else
             XCTAssertEqual(certificates.count, 19, "Expected 19 well-formed certificates")
         #endif
